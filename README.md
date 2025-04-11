@@ -2,6 +2,10 @@
 
 A Discord bot that integrates with local language models (LLMs) for natural conversation, using KoboldAI/KoboldCpp as the backend.
 
+This project was made through Cursor as I learn my way through python. If you encounter bugs, please let me know!
+
+[Like this project? Buy me a coffee!](https://buymeacoffee.com/9bcdptywfh)
+
 ## Features
 
 - Local LLM integration via KoboldAI/KoboldCpp
