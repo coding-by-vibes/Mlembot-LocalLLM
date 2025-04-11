@@ -1,27 +1,30 @@
 # MlemBot - Discord Bot with Local LLM Integration
 
-A Discord bot that integrates with local language models for natural conversation.
+A Discord bot that integrates with local language models (LLMs) for natural conversation, using KoboldAI/KoboldCpp as the backend.
 
 ## Features
 
-- Local LLM integration
-- Channel-specific settings
-- Customizable personalities
+- Local LLM integration via KoboldAI/KoboldCpp
+- Channel-specific conversation settings
+- Customizable bot personalities
 - Conversation history management
 - Admin commands for configuration
+- Automatic model loading and management
+- Windows batch scripts for easy startup
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - Discord Bot Token
-- Local Language Model API endpoint
+- KoboldAI or KoboldCpp installed and running
+- Windows OS (for batch scripts)
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/mlembot.git
-cd mlembot
+git clone https://github.com/coding-by-vibes/Mlembot-LocalLLM.git
+cd Mlembot-LocalLLM
 ```
 
 2. Install dependencies:
@@ -29,21 +32,35 @@ cd mlembot
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root with the following variables:
+3. Copy `.env.example` to `.env` and configure:
+```bash
+copy .env.example .env
+```
+
+4. Edit `.env` with your settings:
 ```
 DISCORD_BOT_TOKEN=your_discord_bot_token
-KAI_ENDPOINT=your_local_llm_endpoint
+KAI_ENDPOINT=http://localhost:5001
 ADMIN_NAME=your_discord_username
 ```
 
+5. Configure KoboldCpp:
+   - Copy `run_kobold.bat.example` to `run_kobold.bat`
+   - Edit `run_kobold.bat` with your model path and settings
+
 ## Usage
 
-1. Start the bot:
+1. Start KoboldCpp:
 ```bash
-python src/main.py
+run_kobold.bat
 ```
 
-2. Use the following slash commands in Discord:
+2. Start the bot:
+```bash
+run_bot.bat
+```
+
+3. Use the following slash commands in Discord:
 - `/botmaxlen` - Set maximum response length
 - `/botsleep` - Put the bot to sleep
 - `/botreset` - Reset conversation history
@@ -52,25 +69,31 @@ python src/main.py
 ## Project Structure
 
 ```
-mlembot/
-├── src/
-│   ├── bot/
-│   │   ├── commands/       # Bot command implementations
-│   │   ├── events/         # Bot event handlers
-│   │   └── bot.py          # Main bot implementation
-│   ├── config/
-│   │   └── settings.py     # Configuration management
-│   ├── models/
-│   │   └── bot_data.py     # Data structures and state management
-│   ├── utils/
-│   │   ├── api.py         # API interaction utilities
-│   │   └── text_processing.py # Text processing utilities
-│   └── main.py            # Entry point
-├── personas/              # Bot personality definitions
-├── requirements.txt       # Project dependencies
-├── .env                  # Environment variables
-└── README.md            # Project documentation
+Mlembot-LocalLLM/
+├── cogs/                 # Discord bot command modules
+├── data/                 # Data storage and history
+├── models/              # Model management and utilities
+├── personas/            # Bot personality definitions
+├── reference_docs/      # Documentation and API references
+├── utils/               # Utility functions and helpers
+├── .env                 # Environment variables
+├── .env.example         # Example environment configuration
+├── bot.py               # Main bot implementation
+├── main.py              # Entry point
+├── requirements.txt     # Project dependencies
+├── run_bot.bat          # Bot startup script
+├── run_kobold.bat       # KoboldCpp startup script
+└── README.md           # Project documentation
 ```
+
+## Reference Documentation
+
+The `reference_docs/` directory contains important documentation:
+- `discord_dev_setup.md` - Discord bot setup guide
+- `kobold_api_usage.py` - Kobold API usage examples
+- `koboldai_docs.json` - KoboldAI API documentation
+- `koboldcpp_readme.md` - KoboldCpp documentation
+- `kobold_api_schema.json` - Kobold API schema
 
 ## Contributing
 
@@ -95,4 +118,4 @@ All contributors should review and follow these guidelines when working on the p
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
