@@ -1,0 +1,6 @@
+discord.py==2.5.2
+python-dotenv==1.1.0
+requests==2.32.3
+Pillow==11.1.0
+pydantic==2.11.3
+aiohttp==3.11.16

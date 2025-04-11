@@ -1,0 +1,2 @@
+sudo su mlembot
+nohup python mlembot.py >/dev/null 2>&1 &

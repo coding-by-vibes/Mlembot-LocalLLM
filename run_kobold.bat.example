@@ -1,0 +1,4 @@
+@echo off
+cd /d "%~dp0"
+bin\koboldcpp.exe --model "models\<your_model_here>" --port 5001 --usecublas --flashattention --contextsize 4096 --threads 3
+pause 
