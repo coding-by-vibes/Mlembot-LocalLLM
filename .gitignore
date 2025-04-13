@@ -59,6 +59,7 @@ logs/
 *.temp
 *.bak
 *.backup
+*.zip
 
 # System files
 .DS_Store
