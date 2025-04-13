@@ -35,7 +35,7 @@ async def query_koboldcpp(prompt: str, settings, memory: str):
         "quiet": True,
         "use_default_badwordsids": False,
         "sampler_order": [6, 0, 1, 3, 4, 2, 5],  # Matches KoboldAI default
-        "stop_token_ids": [15]  # EOS stop
+        "stop_token_ids": []  # EOS stop
     }
 
     async with aiohttp.ClientSession() as session:

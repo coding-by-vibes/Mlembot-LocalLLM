@@ -25,7 +25,13 @@ async def generate_response(guild_id, user_input, history):
     channel_data = bot_data_manager.get_channel(str(guild_id))
     persona_name = channel_data.bot_persona if channel_data else "default"
     persona = load_persona(persona_name)
+    persona.kobold_settings.max_length = channel_data.bot_maxlen
+
+    print(f"[DEBUG] Using persona: {persona.name}")
+    print(f"[DEBUG] Guild token limit (max_length): {channel_data.bot_maxlen}")
+
     prompt = build_prompt(persona, history, user_input)
+
 
     if DEBUG:
         print(f"--- Generating for persona: {persona.name}")

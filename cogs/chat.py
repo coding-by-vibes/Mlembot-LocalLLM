@@ -101,14 +101,20 @@ class ChatCog(commands.Cog):
                     )
 
                     if response:
-                        # 1. Hard-cut at first newline (like KoboldAI client)
-                        response = response.split("\n")[0].strip()
-
-                        # 2. Cut at next speaker tag (dynamic)
                         for tag in ["User:", f"{persona.name}:", "\nUser:", f"\n{persona.name}:"]:
                             if tag in response:
                                 response = response.split(tag)[0].strip()
                                 break
+
+                    # if response:
+                    #     # 1. Hard-cut at first newline (like KoboldAI client)
+                    #     response = response.split("\n")[0].strip()
+
+                    #     # 2. Cut at next speaker tag (dynamic)
+                    #     for tag in ["User:", f"{persona.name}:", "\nUser:", f"\n{persona.name}:"]:
+                    #         if tag in response:
+                    #             response = response.split(tag)[0].strip()
+                    #             break
 
                         # 3. Cut if it's too long for Discord
                         if len(response) > 2000:

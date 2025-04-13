@@ -38,6 +38,10 @@ def load_persona(persona_name: str, base_path="personas") -> Persona:
     if f"\n{persona.name}:" not in resolved_stops:
         resolved_stops.append(f"\n{persona.name}:")
 
+    # if not stop_sequence:
+    #     resolved_stops.append("\nUser:")
+        # resolved_stops.append(f"\n{persona.name}:")
+
     persona.kobold_settings.stop_sequence = resolved_stops
 
     return persona

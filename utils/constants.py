@@ -2,10 +2,10 @@
 
 # API Configuration
 API_DEFAULTS = {
+    "temperature": 0.8,
     "max_context_length": 4096,
     "rep_pen": 1.07,
-    "temperature": 0.8,
-    "top_p": 0.9,
+    "top_p": 0.92,
     "top_k": 100,
     "top_a": 0,
     "typical": 1,
@@ -17,18 +17,19 @@ API_DEFAULTS = {
     "genkey": "KCPP8888",
     "quiet": True,
     "trim_stop": True,
-    "stop_sequence": ["\n###", "### "],
+    "stop_sequence": ["\nUser:"],
+    # "stop_sequence": ["\n###", "### "],
     "use_default_badwordsids": False
 }
 
 # Bot Configuration
 BOT_DEFAULTS = {
+    "temperature": 0.8,
     "max_message_length": 1000,
     "max_history_length": 20,
     "default_idle_timeout": 120,
     "default_max_response_length": 250,
     "default_persona": "clippy",
-    "temperature": 0.8,
 }
 
 # Message Processing

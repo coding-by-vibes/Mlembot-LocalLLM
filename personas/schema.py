@@ -4,8 +4,8 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
 
 class KoboldSettings(BaseModel):
-    temperature: float = 0.7
     rep_pen: float = 1.1
+    temperature: float = 0.7
     rep_pen_range: int = 256
     stop_sequence: List[str] = Field(default_factory=lambda: ["User:", "Bot:"])
     trim_stop: bool = True
